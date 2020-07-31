@@ -15,19 +15,19 @@ public class ListaDobleEnlazada {
 	
 	class Nodo {
 		// Artibutos Nodo
-		int val;
+		Object val;
 		Nodo next;
 		Nodo anterior;
 
 		// Constructor Nodo
-		Nodo(int valor) {
-			this.val = valor;
+		Nodo(Object value) {
+			this.val = value;
 		}
 	}
 	
 	/** Añadir nodo en inicio:	 */
-	public void addEnIni(int v) {
-		Nodo n = new Nodo(v);
+	public void addEnIni(Object value) {
+		Nodo n = new Nodo(value);
 		// Si la lista esta vacía se pone this.primero y this.ultimo apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;

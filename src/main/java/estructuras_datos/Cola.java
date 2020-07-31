@@ -11,7 +11,7 @@ public class Cola {
         isEmpty = true;
     }
 
-    public void enqueue(int value) {
+    public void enqueue(Object value) {
         l.addEnIni(value);
         isEmpty = false;
     }
@@ -22,9 +22,9 @@ public class Cola {
             l.printList();
     }
     
-    public int dequeue() throws Exception {
+    public Object dequeue() throws Exception {
         if (!l.isEmpty) {
-            int v = l.ultimo.val;
+            Object v = l.ultimo.val;
             l.clrFin();
             this.isEmpty = l.isEmpty;
             return v;
@@ -32,8 +32,8 @@ public class Cola {
         else throw new Exception("La cola esta vacía");
     }
     
-    public int dequeue(boolean print) throws Exception {
-        int v = dequeue();
+    public Object dequeue(boolean print) throws Exception {
+        Object v = dequeue();
         if (print) 
             l.printList();
         return v;

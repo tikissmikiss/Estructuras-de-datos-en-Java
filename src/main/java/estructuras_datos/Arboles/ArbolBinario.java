@@ -1,5 +1,7 @@
 package estructuras_datos.Arboles;
 
+import estructuras_datos.Cola;
+
 public class ArbolBinario {
     // Artibutos
     public NodoBin root;
@@ -11,9 +13,6 @@ public class ArbolBinario {
     }
 
     // Metodos
-    // void insertElement();
-    // void clearElement(int value);
-    
     /**
      * Recorre el arbol e imprime el resultado
      * @param r = Nodo raiz
@@ -29,7 +28,7 @@ public class ArbolBinario {
 	}
 
     /**
-     * Añade un nodo raiz
+     * AÃ±ade un nodo raiz
      * @param v = Valor nodo raiz
      */
 	public void setRoot(int v) {
@@ -56,5 +55,29 @@ public class ArbolBinario {
         if (r.hijoDch != null) preorderWalk(r.hijoDch);
     }
 
-    public static void breadthWalk(){}  // Recorrido en anchura
+    /**
+     * Recorre el arbol en anchura e imprime el resultado
+     * 
+     * @param r raiz del arbol o subarbol a recorrer
+     * @throws Exception
+     */
+    public static void breadthWalk(NodoBin r) throws Exception {
+        /*
+        * encolar nodo raiz
+        * mientras cola no vacia
+        *   sacar de la cola
+        *   encolar hijo izq si existe
+        *   encolar hijo dch si existe
+        *   imprimir valor
+        * repetir con siguiente en cola
+        */
+        Cola c = new Cola();
+        c.enqueue(r);
+        while (!c.isEmpty) {
+            NodoBin n = (NodoBin) c.dequeue();
+            if (n.hijoIzq != null) c.enqueue(n.hijoIzq);
+            if (n.hijoDch != null) c.enqueue(n.hijoDch);
+            System.out.print(n.value + " ");
+        }
+    }  
 }

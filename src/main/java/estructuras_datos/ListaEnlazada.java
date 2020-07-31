@@ -18,7 +18,7 @@ public class ListaEnlazada {
 	
 	public class Nodo {
 		// Artibutos Nodo
-		int val;
+		Object val;
 		Nodo next;
 		
 		// Constructor Nodo

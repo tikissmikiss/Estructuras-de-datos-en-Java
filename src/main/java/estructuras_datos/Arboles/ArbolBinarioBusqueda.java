@@ -1,7 +1,5 @@
 package estructuras_datos.Arboles;
 
-import estructuras_datos.Pila;
-
 public class ArbolBinarioBusqueda extends ArbolBinario {
 
     // Constructor
@@ -130,8 +128,8 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         if (n.padre != null)
             printPath(n.padre);
         if (n.padre != null)
-            System.out.print(" -> ");
-        System.out.print(n.value);
+            System.out.print("-->");
+        System.out.print("("+n.value+")");
         // System.out.print(n.value);
     }
 }

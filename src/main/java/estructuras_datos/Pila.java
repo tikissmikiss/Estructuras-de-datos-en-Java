@@ -33,8 +33,8 @@ public class Pila {
         if (print) this.print(); // Para mostrar la pila
     }
 
-	public int pop(boolean print) throws Exception {
-        int b = pop();
+	public Object pop(boolean print) throws Exception {
+        Object b = pop();
         if (print) this.print(); // Para mostrar la pila
         return b;
 	}
@@ -43,11 +43,11 @@ public class Pila {
      * @return Elemento de la posicion mas alta
      * @throws Exception StackUnderflow
      */
-    public int pop() throws Exception { // Desapilar
+    public Object pop() throws Exception { // Desapilar
         if (l.primero == null) {
             throw new Exception("StackUnderflow");
         } else {
-            int v = l.primero.val;
+            Object v = l.primero.val;
             l.clrFin();
             this.print(); // Para mostrar la pila
             return v;

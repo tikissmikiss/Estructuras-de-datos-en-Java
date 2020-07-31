@@ -5,16 +5,16 @@ import estructuras_datos.Arboles.*;
 import estructuras_datos.Arboles.ArbolBinarioBusqueda;
 
 public class App {
-    public static void main(final String[] args) {
-        // ejemplo_lista_doblemente_enlazada();
-        // ejemplo_lista_enlazada();
-        // ejemplo_pila();
-        // ejemplo_cola();
-        // ejemplo_arbol_binario();
+    public static void main(final String[] args) throws Exception {
+        ejemplo_lista_doblemente_enlazada();
+        ejemplo_lista_enlazada();
+        ejemplo_pila();
+        ejemplo_cola();
+        ejemplo_arbol_binario();
         ejemplo_arbol_binario_busqueda();
     }
 
-    private static void ejemplo_arbol_binario_busqueda() {
+    static void ejemplo_arbol_binario_busqueda() throws Exception {
         ArbolBinarioBusqueda a = new ArbolBinarioBusqueda();
         int valores[] = {52,90,23,48,17,36,42,88,21,57,72};
         /*
@@ -32,15 +32,13 @@ public class App {
             a.insert(i);
         }
 
-        // a.insert(21);
-        // a.insert(52);
-        // a.insert(88);
-
         ArbolBinarioBusqueda.preorderWalk(a.root);
         System.out.println();
         ArbolBinarioBusqueda.inorderWalk(a.root);
         System.out.println();
         ArbolBinarioBusqueda.postoderWalk(a.root);
+        System.out.println();
+        ArbolBinarioBusqueda.breadthWalk(a.root);
         System.out.println();
 
         System.out.println("Máximo: " + a.maximunNodo().value);
@@ -48,6 +46,7 @@ public class App {
         System.out.println("Mínimo: " + a.minimunNodo().value);
         System.out.println("Mínimo: " + a.minimunVal());
 
+        System.out.print("Ruta hasta el 72: ");
         ArbolBinarioBusqueda.printPath(a.search(72));
         System.out.println();
         
@@ -81,10 +80,9 @@ public class App {
         System.out.println();
         ArbolBinarioBusqueda.postoderWalk(a.root);
         System.out.println();
-
     }
 
-    private static void ejemplo_arbol_binario() {
+    static void ejemplo_arbol_binario() {
         /*
         *           (4) 
         *          /  \
@@ -97,24 +95,28 @@ public class App {
         ArbolBinario a = new ArbolBinario();   // Raiz
         try {
             a.setRoot(4);
-			a.root.setHijoIzq(5);
+            a.root.setHijoIzq(5);
             a.root.hijoIzq.setHijoIzq(1);
             a.root.hijoIzq.setHijoDch(2);
             a.root.hijoIzq.hijoDch.setHijoIzq(7);
             a.root.setHijoDch(3);
             a.root.hijoDch.setHijoDch(6);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 
-        ArbolBinario.inorderWalk(a.root);
-        System.out.println();
+            ArbolBinario.inorderWalk(a.root);
+            System.out.println();
 
-        ArbolBinario.postoderWalk(a.root);
-        System.out.println();
+            ArbolBinario.postoderWalk(a.root);
+            System.out.println();
 
-        ArbolBinario.preorderWalk(a.root);
-        System.out.println();
+            ArbolBinario.preorderWalk(a.root);
+            System.out.println();
+
+            ArbolBinario.breadthWalk(a.root);
+            System.out.println();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     static void ejemplo_cola() {
