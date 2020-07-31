@@ -1,12 +1,12 @@
 package estructuras_datos.Arboles;
 
 /**
- * <p>Arbol binario de busqueda balanceado (AVL por sus inventores)</p>
+ * <p>Árbol binario de búsqueda balanceado (AVL por sus inventores)</p>
  * 
- * Extiende funcionalidades de un Arbol binario de busqueda, sobreescribiendo
- * los metodos de inserción y borrado, de modo que ademas de mantenerse la 
- * propiedad de ordenación se mantiene el arbos balanceado.
- * @author Jose Herce
+ * Extiende funcionalidades de un Árbol binario de búsqueda, sobrescribiendo
+ * los métodos de inserción y borrado, de modo que además de mantenerse la 
+ * propiedad de ordenación se mantiene el árbol balanceado.
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  */
 public class Arbol_AVL extends ArbolBinarioBusqueda {
@@ -28,7 +28,7 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
         
     }
 
-    // TODO en Arbol binario de busqueda se complica. Implementar con arbol balanceado
+    // TODO en Árbol binario de búsqueda se complica. Implementar con árbol balanceado
     public NodoBin succesor(int v){
         return succesor(root, v);
     }
@@ -40,14 +40,12 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
         return n;
     }
 
-    // TODO en Arbol binario de busqueda se complica. Implementar con arbol balanceado
+    // TODO en Árbol binario de búsqueda se complica. Implementar con árbol balanceado
     public NodoBin predecessor(int v){
         return predecessor(root, v);
     }
     private NodoBin predecessor(NodoBin n, int v) {
         if (n.value < v)
-
-
             return predecessor(n.hijoIzq, v);
         else if (n.hijoDch != null)
             return predecessor(n.hijoDch, v);

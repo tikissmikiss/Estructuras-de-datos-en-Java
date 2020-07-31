@@ -1,18 +1,18 @@
 package estructuras_datos.Arboles;
 
 /**
- * Objeto nodo de un arbol binario. Contiene un atributo de valor y 3 punteros, 
+ * Objeto nodo de un árbol binario. Contiene un atributo de valor y 3 punteros, 
  * uno apuntando a su nodo padre (parent) y dos apuntando a sus nodos hijos, 
  * izquierdo y derecho respectivamente.
  * @param value
  * @param padre
  * @param hijoIzq
  * @param hijoDch
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  */
 public class NodoBin {
-    // Parametros
+    // Parámetros
     public int value;
     public NodoBin padre;
     public NodoBin hijoIzq;
@@ -59,7 +59,7 @@ public class NodoBin {
     }
 
     /**
-     * Inserta hijo derercho
+     * Inserta hijo derecho
      * @param v = Valor del nodo hijo
      * @throws Exception Ya existe un hijo derecho
      */

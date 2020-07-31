@@ -3,11 +3,11 @@ package estructuras_datos.Arboles;
 import estructuras_datos.Cola;
 
 /**
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  */
 public class ArbolBinario {
-    // Artibutos
+    // Atributos
     public NodoBin root;
 
     // Constructores
@@ -16,10 +16,10 @@ public class ArbolBinario {
         this.root = new NodoBin(v);
     }
 
-    // Metodos
+    // Métodos
     /**
-     * Recorre el arbol e imprime el resultado
-     * @param r = Nodo raiz
+     * Recorre el árbol e imprime el resultado
+     * @param r = Nodo raíz
      */
     public static void inorderWalk(NodoBin r) {
         if (r.hijoIzq != null) inorderWalk(r.hijoIzq);
@@ -32,16 +32,16 @@ public class ArbolBinario {
 	}
 
     /**
-     * Añade un nodo raiz
-     * @param v = Valor nodo raiz
+     * Añade un nodo raíz
+     * @param v = Valor nodo raíz
      */
 	public void setRoot(int v) {
 		this.root = new NodoBin(v);
 	}
 
 	/**
-     * Recorre el arbol e imprime el resultado
-     * @param r = Nodo raiz
+     * Recorre el árbol e imprime el resultado
+     * @param r = Nodo raíz
      */
     public static void postoderWalk(NodoBin r){
         if (r.hijoIzq != null) postoderWalk(r.hijoIzq);
@@ -50,8 +50,8 @@ public class ArbolBinario {
     }
     
     /**
-     * Recorre el arbol e imprime el resultado
-     * @param r = Nodo raiz
+     * Recorre el árbol e imprime el resultado
+     * @param r = Nodo raíz
      */
     public static void preorderWalk(NodoBin r){
         System.out.print(r.value + " ");
@@ -60,15 +60,15 @@ public class ArbolBinario {
     }
 
     /**
-     * Recorre el arbol en anchura e imprime el resultado
+     * Recorre el árbol en anchura e imprime el resultado
      * 
-     * @param r raiz del arbol o subarbol a recorrer
+     * @param r raíz del árbol o subárbol a recorrer
      * @throws Exception
      */
     public static void breadthWalk(NodoBin r) throws Exception {
         /*
-        * encolar nodo raiz
-        * mientras cola no vacia
+        * encolar nodo raíz
+        * mientras cola no vacía
         *   sacar de la cola
         *   encolar hijo izq si existe
         *   encolar hijo dch si existe

@@ -1,9 +1,9 @@
 package estructuras_datos.Arboles;
 
 /**
- * Extiende funcionalidades de un Arbol binario, incorporando 
- * metodos para inserción y eliminación de nodos, manteniendo 
- * la propidad de ordenación, que dice:
+ * Extiende funcionalidades de un Árbol binario, incorporando 
+ * Métodos para inserción y eliminación de nodos, manteniendo 
+ * la propiedad de ordenación, que dice:
  * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
  * <p>Para estandarizar la estructura, la propiedad de ordenación 
  * se cumple siempre de la forma:</p>
@@ -29,7 +29,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         return searchNodo(this.root, v);
     }
     /**
-     * Busqueda recursiva de un nodo con valor {@code v} desde el nodo {@code n}
+     * Búsqueda recursiva de un nodo con valor {@code v} desde el nodo {@code n}
      * @param n nodo desde el que se busca
      * @param v valor buscado
      * @return el primer nodo con el valor buscado.<li>{@code null} si valor no encontrado.</li>
@@ -78,7 +78,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
 
     /**
      * Crea un nuevo nodo con el valor dado y lo inserta manteniendo 
-     * la propidad de ordenación.
+     * la propiedad de ordenación.
      * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
      * <p>De este modo:</p>
      * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
@@ -89,16 +89,16 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         insert(this.root, n);
     }
     /**
-     * Inserta el nodo {@code n} manteniendo la propidad de ordenación.
+     * Inserta el nodo {@code n} manteniendo la propiedad de ordenación.
      * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
      * <p>De este modo:</p>
      * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
-     * @param r raiz del sub/arbol en donde insertar
+     * @param r raíz del sub/árbol en donde insertar
      * @param n nodo a insertar
      */
     private void insert(NodoBin r, NodoBin n) {
         n.padre = r;    // Actualizar el padre del nodo
-        if (r == null)  // Si el arbol esta vacio establecer como raiz
+        if (r == null)  // Si el árbol esta vacío establecer como raíz
             this.root = n;
         else if (n.value <= r.value) 
             if (r.hijoIzq == null) 
@@ -113,7 +113,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
     }
 
     /**
-     * Busca el nodo con el valor dado y lo elimina manteniendo la propidad de ordenación.
+     * Busca el nodo con el valor dado y lo elimina manteniendo la propiedad de ordenación.
      * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
      * <p>De este modo:</p>
      * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
@@ -124,7 +124,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         delete(this.search(v));
     }
     /**
-     * Elimina un nodo manteniendo la propidad de ordenación.
+     * Elimina un nodo manteniendo la propiedad de ordenación.
      * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
      * <p>De este modo:</p>
      * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
@@ -142,23 +142,23 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
                 n.hijoIzq.setHijoIzq(n.hijoIzq);
                 n.hijoIzq.setHijoDch(n.hijoDch);                
             } else {
-                // Subir el hijo iquierdo a la posicion del elemento a eliminar.
+                // Subir el hijo izquierdo a la posición del elemento a eliminar.
                 n.hijoIzq.setPadre(n.padre);     // Apunta el padre del nodo que sube, al padre del nodo a borrar.
-                if (n.padre == null)           // Si el padre era null, actualiza el raiz del arbol.
+                if (n.padre == null)           // Si el padre era null, actualiza el raíz del árbol.
                     this.root = n.hijoIzq; 
-                if (n.padre == null);            // Si el elemento a borrar es el raiz, no hacer nada.
+                if (n.padre == null);            // Si el elemento a borrar es el raíz, no hacer nada.
                 else if (n.padre.hijoIzq == n)   // Si el nodo a borrar es el hijo derecho de su padre.
                     n.padre.setHijoIzq(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
                 else if (n.padre.hijoDch == n)   // Si el nodo a borrar es el hijo izquierdo de su padre.
                     n.padre.setHijoDch(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
-                // Insertar el hijo derecho en el subarbol del hijo izquierdo.
+                // Insertar el hijo derecho en el subárbol del hijo izquierdo.
                 this.insert(n.hijoIzq, n.hijoDch);
             }
         } else throw new Exception("No existe el elemento que se intenta borrar");
     }
 
     /**
-     * Imprime la ruta desde el raiz al nodo de entrada
+     * Imprime la ruta desde el raíz al nodo de entrada
      * @param n destino de la ruta a imprimir
      */
     public static void printPath(NodoBin n) {

@@ -1,12 +1,12 @@
 package estructuras_datos;
 
 /** Linked List
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la lista esta vacía
  */
 public class ListaEnlazada {
-	// Artibutos Lista Enlazada
+	// Atributos Lista Enlazada
 	Nodo primero;	// Puntero a primero nodo
 	Nodo ultimo;	// Puntero a primero nodo
 	public boolean isEmpty;
@@ -19,7 +19,7 @@ public class ListaEnlazada {
 	}
 	
 	public class Nodo {
-		// Artibutos Nodo
+		// Atributos Nodo
 		Object val;
 		Nodo next;
 		
@@ -39,11 +39,11 @@ public class ListaEnlazada {
 		 * next a primero nodo
 		 */
 		final Nodo n = new Nodo(value);
-		// Si la lista esta vací­a primero y ultimo de lista apuntando al nuevo nodo
+		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {
 			this.primero = n;
 			this.ultimo = n;
-		} // Si no esta vací­a pone el nuevo nodo apuntando al primero
+		} // Si no esta vacía pone el nuevo nodo apuntando al primero
 		else {
 			n.next = this.primero;
 			this.primero = n; //Actualiza con el nuevo nodo como el primero de la lista 
@@ -57,11 +57,11 @@ public class ListaEnlazada {
 	 */
 	public void addEnFin(final int value) {
 		final Nodo n = new Nodo(value);
-		// Si la lista esta vací­a primero y ultimo de lista apuntando al nuevo nodo
+		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;
 			this.ultimo = n;
-		} // Si no esta vací­a pone el ultimo nodo apuntando al nuevo
+		} // Si no esta vacía pone el ultimo nodo apuntando al nuevo
 		else { 
 			this.ultimo.next = n;	//next del ultimo nodo apuntando al nuevo
 			this.ultimo = n;		//Actualizar referencia al ultimo nodo
@@ -75,7 +75,7 @@ public class ListaEnlazada {
 	 * @throws Exception Lista vací­a
 	 */
 	public void clrIni() throws Exception {
-		if (!this.isEmpty) {	// Si no esta la lista vací­a
+		if (!this.isEmpty) {	// Si no esta la lista vacía
 			this.primero = this.primero.next;
 			this.isEmpty();
 		} 
@@ -84,10 +84,10 @@ public class ListaEnlazada {
 
 	/**
 	 * Borra el último nodo
-	 * @throws Exception Lista vací­a
+	 * @throws Exception Lista vacía
 	 */
 	public void clrFin() throws Exception {
-		if (!this.isEmpty) {	// Si no esta la lista vací­a
+		if (!this.isEmpty) {	// Si no esta la lista vacía
 			if (this.primero.next == null) { // Si el primero nodo es el último
 				this.primero = null;
 			} else { // Si el primero nodo no es el ultimo
@@ -101,7 +101,7 @@ public class ListaEnlazada {
 		else throw new Exception("La lista ya esta vací­a");
 	}
 
-	/** Comprueba y actualiza el parametro isEmpty
+	/** Comprueba y actualiza el parámetro isEmpty
 	 * @return true si vacía, false si no vacía
 	 */
 	private boolean isEmpty() {

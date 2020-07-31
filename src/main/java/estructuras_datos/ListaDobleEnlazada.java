@@ -1,12 +1,12 @@
 package estructuras_datos;
 
 /**
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la lista esta vacía
  */
 public class ListaDobleEnlazada {
-	// Artibutos Lista Enlazada
+	// Atributos Lista Enlazada
 	Nodo primero; // Puntero a primer nodo
 	Nodo ultimo; // Puntero a ultimo nodo
 	public boolean isEmpty;
@@ -19,7 +19,7 @@ public class ListaDobleEnlazada {
 	}
 	
 	class Nodo {
-		// Artibutos Nodo
+		// Atributos Nodo
 		Object val;
 		Nodo next;
 		Nodo anterior;
@@ -40,9 +40,9 @@ public class ListaDobleEnlazada {
 		if (this.isEmpty) {   
 			this.primero = n;
 			this.ultimo = n;
-		} else { // Si no esta vacia
+		} else { // Si no esta vacía
 			n.next = this.primero;
-			n.next = this.primero;	// El campo nexclr nodo apunta al primero de la lista
+			n.next = this.primero;	// El campo next nodo apunta al primero de la lista
 			this.primero.anterior = n;	// El campo anterior del primer nodo apunta al nuevo
 			this.primero = n;		// El campo primero de la lista apunta al nodo
 		}
@@ -59,7 +59,7 @@ public class ListaDobleEnlazada {
 		if (this.isEmpty) {   
 			this.primero = n;
 			this.ultimo = n;
-		} else { // Si no esta vacia
+		} else { // Si no esta vacía
 			n.anterior = this.ultimo;		//anterior del nuevo nodo apuntando al ultimo nodo
 			this.ultimo.next = n;	//next del ultimo nodo apuntando al nuevo
 			this.ultimo = n;			//Actualizar referencia al ultimo nodo
@@ -98,7 +98,7 @@ public class ListaDobleEnlazada {
 		isEmpty();
 	}
 
-	/** Comprueba y actualiza el parametro isEmpty
+	/** Comprueba y actualiza el parámetro isEmpty
 	 * @return true si vacía, false si no vacía
 	 */
 	private boolean isEmpty() {

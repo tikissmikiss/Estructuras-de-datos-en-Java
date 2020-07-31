@@ -2,12 +2,12 @@ package estructuras_datos;
 
 /**
  * Pila (Stack): 
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
- * @param isEmpty Devuelve true si la cola esta vacia
+ * @param isEmpty Devuelve true si la cola esta vacía
  */
 public class Pila { 
-    // Artibutos
+    // Atributos
     private ListaDobleEnlazada l;
     public boolean isEmpty;
 
@@ -45,7 +45,7 @@ public class Pila {
 	}
 
     /** Extrae elemento de la pila (Elimina el elemento de la pila)
-     * @return Elemento de la posicion mas alta
+     * @return Elemento de la posición mas alta
      * @throws Exception StackUnderflow
      */
     public Object pop() throws Exception { // Desapilar
