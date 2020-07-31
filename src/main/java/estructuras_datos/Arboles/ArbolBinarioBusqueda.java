@@ -1,5 +1,14 @@
 package estructuras_datos.Arboles;
 
+/**
+ * Extiende funcionalidades de un Arbol binario, incorporando 
+ * metodos para inserción y eliminación de nodos, manteniendo 
+ * la propidad de ordenación, que dice:
+ * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
+ * <p>Para estandarizar la estructura, la propiedad de ordenación 
+ * se cumple siempre de la forma:</p>
+ * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
+ */
 public class ArbolBinarioBusqueda extends ArbolBinario {
 
     // Constructor
@@ -67,12 +76,20 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         return minNodo(n).value;
     }
 
+    /**
+     * Crea un nuevo nodo con el valor dado y lo inserta manteniendo 
+     * la propidad de ordenación.
+     * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
+     * <p>De este modo:</p>
+     * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
+     * @param v
+     */
     public void insert(int v) {
         NodoBin n = new NodoBin(v);
         insert(this.root, n);
     }
     /**
-     * Inserta el nodo {@code n} manteniendo la propidad de ordenacion
+     * Inserta el nodo {@code n} manteniendo la propidad de ordenación.
      * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
      * <p>De este modo:</p>
      * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
@@ -95,9 +112,25 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
                 insert(r.hijoDch, n);
     }
 
+    /**
+     * Busca el nodo con el valor dado y lo elimina manteniendo la propidad de ordenación.
+     * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
+     * <p>De este modo:</p>
+     * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
+     * @param v valor del nodo que se desea eliminar.
+     * @throws Exception No existe el elemento que se intenta borrar
+     */
     public void delete(int v) throws Exception {
         delete(this.search(v));
     }
+    /**
+     * Elimina un nodo manteniendo la propidad de ordenación.
+     * <p>{@code hijoIzq} <= {@code valor} <= {@code hijoDch}</p>
+     * <p>De este modo:</p>
+     * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
+     * @param n nodo a eliminar
+     * @throws Exception No existe el elemento que se intenta borrar
+     */
     public void delete(NodoBin n) throws Exception {
         if (n != null) {
             if (n.hijoIzq == null) {
@@ -124,12 +157,15 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         } else throw new Exception("No existe el elemento que se intenta borrar");
     }
 
+    /**
+     * Imprime la ruta desde el raiz al nodo de entrada
+     * @param n destino de la ruta a imprimir
+     */
     public static void printPath(NodoBin n) {
         if (n.padre != null)
             printPath(n.padre);
         if (n.padre != null)
             System.out.print("-->");
         System.out.print("("+n.value+")");
-        // System.out.print(n.value);
     }
 }

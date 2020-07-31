@@ -1,13 +1,31 @@
 package estructuras_datos.Arboles;
 
 /**
- * Arbol binario de busqueda balanceado (AVL por sus inventores)
+ * <p>Arbol binario de busqueda balanceado (AVL por sus inventores)</p>
+ * 
+ * Extiende funcionalidades de un Arbol binario de busqueda, sobreescribiendo
+ * los metodos de inserción y borrado, de modo que ademas de mantenerse la 
+ * propiedad de ordenación se mantiene el arbos balanceado.
+ * @author Jose Herce
+ * @version 0.1 - 27/07/2020
  */
 public class Arbol_AVL extends ArbolBinarioBusqueda {
 
     // Constructor
     public Arbol_AVL(int v) {
         super();
+    }
+
+    public Arbol_AVL() {
+	}
+
+	@Override
+    public void insert(int v) {
+        NodoBin n = new NodoBin(v);
+        insert(this.root, n);
+    }
+    private void insert(NodoBin R, NodoBin n) {
+        
     }
 
     // TODO en Arbol binario de busqueda se complica. Implementar con arbol balanceado

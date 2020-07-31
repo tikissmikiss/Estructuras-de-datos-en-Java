@@ -1,6 +1,5 @@
 package estructuras_datos;
 
-// Stack
 /**
  * Pila (Stack): 
  * @author Jose Herce
@@ -18,14 +17,14 @@ public class Pila {
         isEmpty = true;
     }
 
-    /** A�adir elemento a la pila
+    /** Añadir elemento a la pila
      * @param value Valor del elemento
      */
     public void push(int value) { //Apilar
         l.addEnFin(value);
     }
 
-    /** A�adir elemento a la pila
+    /** Añadir elemento a la pila
      * @param value Valor del elemento
      */
     public void push(int value, boolean print) { //Apilar
@@ -33,6 +32,12 @@ public class Pila {
         if (print) this.print(); // Para mostrar la pila
     }
 
+    /**
+     * Añade elemento a la pila
+     * @param print {@code true} para que se imprima la pila tras eliminar el elemento
+     * @return referencia al objeto sacado de la pila
+     * @throws Exception StackUnderflow
+     */
 	public Object pop(boolean print) throws Exception {
         Object b = pop();
         if (print) this.print(); // Para mostrar la pila
@@ -54,6 +59,9 @@ public class Pila {
         }
     }
 
+    /**
+     * @return {@code true} si la pila esta vacía
+     */
     public boolean isEmpty() {
         return l.isEmpty;
     }

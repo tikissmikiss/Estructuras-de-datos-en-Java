@@ -1,5 +1,10 @@
 package estructuras_datos;
 
+/**
+ * @author Jose Herce
+ * @version 0.1 - 27/07/2020
+ * @param isEmpty Devuelve true si la lista esta vacía
+ */
 public class ListaDobleEnlazada {
 	// Artibutos Lista Enlazada
 	Nodo primero; // Puntero a primer nodo
@@ -25,7 +30,10 @@ public class ListaDobleEnlazada {
 		}
 	}
 	
-	/** Añadir nodo en inicio:	 */
+	/**
+	 * Añadir nodo en inicio
+	 * @param value objeto a añadir
+	 */
 	public void addEnIni(Object value) {
 		Nodo n = new Nodo(value);
 		// Si la lista esta vacía se pone this.primero y this.ultimo apuntando al nuevo nodo
@@ -41,8 +49,11 @@ public class ListaDobleEnlazada {
 		this.isEmpty = false;
 	}
 	
-	/** Añadir nodo al final */
-	public void addEnFin(int v) {
+	/**
+	 * Añadir nodo al final
+	 * @param v objeto a añadir
+	 */
+	public void addEnFin(Object v) {
 		Nodo n = new Nodo(v);
 		// Si la lista esta vacía se pone this.primero y this.ultimo apuntando al nuevo nodo
 		if (this.isEmpty) {   
@@ -58,8 +69,7 @@ public class ListaDobleEnlazada {
 	
 	/**
 	 * Borra el primer nodo
-	 * 
-	 * @throws Exception La lista ya esta vacía
+	 * @throws Exception ListEmpty
 	 */
 	public void clrIni() throws Exception {
 		// Si no esta la lista vacía
@@ -67,18 +77,17 @@ public class ListaDobleEnlazada {
 			this.primero.next.anterior = null;
 			this.primero = this.primero.next;
 		}
-		else throw new Exception("La lista ya esta vacía");
+		else throw new Exception("ListEmpty: La lista ya esta vacía");
 		isEmpty();
 	}
 
 	/**
 	 * Borra el ultimo nodo
-	 * 
-	 * @throws Exception La lista ya esta vacía
+	 * @throws Exception ListEmpty
 	 */
 	public void clrFin() throws Exception {
 		if (this.isEmpty ) { 					// Si la lista esta vacía
-			throw new Exception("La lista ya esta vacía");
+			throw new Exception("ListEmpty: La lista ya esta vacía");
 		} else if (this.primero==this.ultimo) { // Si solo hay un elemento
 			this.primero = null;
 			this.ultimo = null;
@@ -101,7 +110,9 @@ public class ListaDobleEnlazada {
 		return isEmpty;
 	}
 
-	/** Imprime la lista enlazada */
+	/**
+	 * Imprime todos los elementos de la lista
+	 */
 	public void printList() {
 		if (this.primero != null) {
 			printNodo(this.primero);
@@ -109,7 +120,10 @@ public class ListaDobleEnlazada {
 		System.out.println();
 	}
 	
-	// Imprime los nodos siguientes de forma recursiva
+	/**
+	 * Imprime los nodos siguientes de forma recursiva
+	 * @param n nodo inicial
+	 */
 	private void printNodo (Nodo n) {
 		System.out.print(n.val);
 		if (n.next != null)

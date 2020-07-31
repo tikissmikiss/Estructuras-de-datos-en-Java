@@ -2,6 +2,10 @@ package estructuras_datos.Arboles;
 
 import estructuras_datos.Cola;
 
+/**
+ * @author Jose Herce
+ * @version 0.1 - 27/07/2020
+ */
 public class ArbolBinario {
     // Artibutos
     public NodoBin root;
