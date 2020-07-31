@@ -5,7 +5,7 @@ import estructuras_datos.Arboles.*;
 
 /**
  * App para testeo de las estructuras de datos
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  */
 public class App {
@@ -78,7 +78,7 @@ public class App {
         * INORDER:   17 21 36 42 48 52 57 72 88 90    * INORDER:   17 21 23 36 42 48 57 72 88 90 
         * POSTORDER: 42 36 48 21 17 72 57 88 90 52    * POSTORDER: 21 17 42 36 72 57 88 90 48 23
         */
-        // NOTA: Para obtener los arboles de arriba borrar 23 o 52. Uno u otro, no ambos.
+        // NOTA: Para obtener los árboles de arriba borrar 23 o 52. Uno u otro, no ambos.
         a.delete(52);
         // a.delete(23);
 
@@ -100,7 +100,7 @@ public class App {
         *        / 
         *      (7)
         */
-        ArbolBinario a = new ArbolBinario();   // Raiz
+        ArbolBinario a = new ArbolBinario();   // Raíz
         a.setRoot(4);
         a.root.setHijoIzq(5);
         a.root.hijoIzq.setHijoIzq(1);

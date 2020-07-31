@@ -1,11 +1,11 @@
 package estructuras_datos;
 
 /**
- * @author Jose Herce
+ * @author José Herce
  * @version 0.1 - 27/07/2020
  */
 public class Cola {
-    // Artibutos
+    // Atributos
     private ListaDobleEnlazada l;
     public boolean isEmpty;
 
@@ -27,7 +27,7 @@ public class Cola {
     /**
      * Meter un elemento en la cola
      * @param value elemento a encolar
-     * @param print {@code true} para imprimir la cola despues de encolar
+     * @param print {@code true} para imprimir la cola después de encolar
      */
     public void enqueue(Object value, boolean print) {
         enqueue(value);
@@ -51,7 +51,7 @@ public class Cola {
     }
     /**
      * Saca un elemento de la cola
-     * @param print {@code true} para imprimir la cola despues de desencolar
+     * @param print {@code true} para imprimir la cola después de desencolar
      * @return referencia al objeto desencolado
      * @throws Exception QueueEmpty
      */
@@ -63,7 +63,7 @@ public class Cola {
     }
     
     /**
-     * @return {@code true} si la cola esta vacia
+     * @return {@code true} si la cola esta vacía
      */
     public boolean isEmpty() {
         return l.isEmpty;
