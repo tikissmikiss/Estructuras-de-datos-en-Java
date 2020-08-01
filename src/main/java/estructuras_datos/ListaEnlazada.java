@@ -5,10 +5,10 @@ package estructuras_datos;
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la lista esta vacía
  */
-public class ListaEnlazada {
+public class ListaEnlazada<T> {
 	// Atributos Lista Enlazada
-	Nodo primero;	// Puntero a primero nodo
-	Nodo ultimo;	// Puntero a primero nodo
+	Nodo<T> primero;	// Puntero a primero nodo
+	Nodo<T> ultimo;	// Puntero a primero nodo
 	public boolean isEmpty;
 	
 	// Constructor Lista Enlazada
@@ -18,13 +18,13 @@ public class ListaEnlazada {
 		this.isEmpty = true;
 	}
 	
-	public class Nodo {
+	public class Nodo<N> {
 		// Atributos Nodo
-		Object val;
-		Nodo next;
+		N val;
+		Nodo<N> next;
 		
 		// Constructor Nodo
-		Nodo(final int valor) {
+		Nodo(final N valor) {
 			this.val = valor;
 		}
 	}
@@ -33,12 +33,12 @@ public class ListaEnlazada {
 	 * Añadir nodo nuevo al inicio con el valor de la entrada
 	 * @param value valor para el nuevo nodo
 	 */
-	public void addEnIni(final int value) {
+	public void addEnIni(final T value) {
 		/*
 		 * Añadir nodo en primero: - Crear nodo nuevo con el valor de entrada - Apuntar
 		 * next a primero nodo
 		 */
-		final Nodo n = new Nodo(value);
+		final Nodo<T> n = new Nodo<T>(value);
 		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {
 			this.primero = n;
@@ -55,8 +55,8 @@ public class ListaEnlazada {
 	 * Añadir nodo nuevo al final con el valor de la entrada
 	 * @param value valor para el nuevo nodo
 	 */
-	public void addEnFin(final int value) {
-		final Nodo n = new Nodo(value);
+	public void addEnFin(final T value) {
+		final Nodo<T> n = new Nodo<T>(value);
 		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;
@@ -91,7 +91,7 @@ public class ListaEnlazada {
 			if (this.primero.next == null) { // Si el primero nodo es el último
 				this.primero = null;
 			} else { // Si el primero nodo no es el ultimo
-				Nodo tmp = this.primero; // Guardar referencia al primero nodo
+				Nodo<T> tmp = this.primero; // Guardar referencia al primero nodo
 				while (tmp.next.next != null) // Recorre la lista hasta el penúltimo nodo
 					tmp = tmp.next;
 				tmp.next = null;
@@ -125,7 +125,7 @@ public class ListaEnlazada {
 	 * Imprime los nodos siguientes de forma recursiva
 	 * @param n nodo inicial
 	 */
-	protected void printNodo(final Nodo n) {
+	protected void printNodo(final Nodo<T> n) {
 		System.out.print(n.val);
 		if (n.next != null)
 			System.out.print(" --> ");

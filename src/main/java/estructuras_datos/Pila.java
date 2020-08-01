@@ -6,28 +6,28 @@ package estructuras_datos;
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la cola esta vacía
  */
-public class Pila { 
+public class Pila<T> { 
     // Atributos
-    private ListaDobleEnlazada l;
+    private ListaDobleEnlazada<T> l;
     public boolean isEmpty;
 
     // Constructor
     public Pila() {
-        l = new ListaDobleEnlazada();
+        l = new ListaDobleEnlazada<T>();
         isEmpty = true;
     }
 
     /** Añadir elemento a la pila
      * @param value Valor del elemento
      */
-    public void push(int value) { //Apilar
+    public void push(T value) { //Apilar
         l.addEnFin(value);
     }
 
     /** Añadir elemento a la pila
      * @param value Valor del elemento
      */
-    public void push(int value, boolean print) { //Apilar
+    public void push(T value, boolean print) { //Apilar
         l.addEnFin(value);
         if (print) this.print(); // Para mostrar la pila
     }

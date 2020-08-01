@@ -75,7 +75,7 @@ public class ArbolBinario {
         *   imprimir valor
         * repetir con siguiente en cola
         */
-        Cola c = new Cola();
+        Cola<NodoBin> c = new Cola<NodoBin>();
         c.enqueue(r);
         while (!c.isEmpty) {
             NodoBin n = (NodoBin) c.dequeue();

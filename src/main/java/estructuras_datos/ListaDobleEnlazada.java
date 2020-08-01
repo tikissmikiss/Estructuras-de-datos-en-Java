@@ -5,10 +5,10 @@ package estructuras_datos;
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la lista esta vacía
  */
-public class ListaDobleEnlazada {
+public class ListaDobleEnlazada<T> {
 	// Atributos Lista Enlazada
-	Nodo primero; // Puntero a primer nodo
-	Nodo ultimo; // Puntero a ultimo nodo
+	Nodo<T> primero; // Puntero a primer nodo
+	Nodo<T> ultimo; // Puntero a ultimo nodo
 	public boolean isEmpty;
 
 	// Constructor Lista Enlazada
@@ -18,14 +18,14 @@ public class ListaDobleEnlazada {
 		this.isEmpty = true;
 	}
 	
-	class Nodo {
+	class Nodo<N> {
 		// Atributos Nodo
-		Object val;
-		Nodo next;
-		Nodo anterior;
+		N val;
+		Nodo<N> next;
+		Nodo<N> anterior;
 
 		// Constructor Nodo
-		Nodo(Object value) {
+		Nodo(N value) {
 			this.val = value;
 		}
 	}
@@ -34,8 +34,8 @@ public class ListaDobleEnlazada {
 	 * Añadir nodo en inicio
 	 * @param value objeto a añadir
 	 */
-	public void addEnIni(Object value) {
-		Nodo n = new Nodo(value);
+	public void addEnIni(T value) {
+		Nodo<T> n = new Nodo<T>(value);
 		// Si la lista esta vacía se pone this.primero y this.ultimo apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;
@@ -53,8 +53,8 @@ public class ListaDobleEnlazada {
 	 * Añadir nodo al final
 	 * @param v objeto a añadir
 	 */
-	public void addEnFin(Object v) {
-		Nodo n = new Nodo(v);
+	public void addEnFin(T v) {
+		Nodo<T> n = new Nodo<T>(v);
 		// Si la lista esta vacía se pone this.primero y this.ultimo apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;
@@ -124,7 +124,7 @@ public class ListaDobleEnlazada {
 	 * Imprime los nodos siguientes de forma recursiva
 	 * @param n nodo inicial
 	 */
-	private void printNodo (Nodo n) {
+	private void printNodo (Nodo<T> n) {
 		System.out.print(n.val);
 		if (n.next != null)
 			System.out.print("  -->  ");

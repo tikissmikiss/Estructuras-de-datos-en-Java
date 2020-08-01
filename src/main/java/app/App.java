@@ -10,19 +10,32 @@ import estructuras_datos.Arboles.*;
  */
 public class App {
     public static void main(final String[] args) throws Exception {
-        // ejemplo_lista_doblemente_enlazada();
-        // ejemplo_lista_enlazada();
-        // ejemplo_pila();
-        // ejemplo_cola();
-        // ejemplo_arbol_binario();
-        // ejemplo_arbol_binario_busqueda();
-        ejemplo_arbol_AVL();
+        ejemplo_lista_doblemente_enlazada();
+        ejemplo_lista_enlazada();
+        ejemplo_pila();
+        ejemplo_cola();
+        ejemplo_arbol_binario();
+        ejemplo_arbol_binario_busqueda();
+        // ejemplo_arbol_AVL();
     }
 
     static void ejemplo_arbol_AVL() throws Exception {
         Arbol_AVL a = new Arbol_AVL();
-
-        a.insert(1);
+        int valores[] = {52,90,23,48,17,36,42,88,21,57,72};
+        /* TODO Actualizar a balanceado
+        *            (52) 
+        *           /    \
+        *       (23)     (90)
+        *      /   \     / 
+        *  (17)   (48) (88)
+        *    \    /    /
+        *   (21)(36) (57)
+        *         \    \
+        *         (42) (72)
+        */
+        for (int i : valores) {
+            a.insert(i);
+        }
     }
 
     static void ejemplo_arbol_binario_busqueda() throws Exception {
@@ -123,7 +136,7 @@ public class App {
     }
 
     static void ejemplo_cola() throws Exception {
-        final Cola p = new Cola();
+        final Cola<Integer> p = new Cola<Integer>();
 
         p.enqueue(1, true);
         p.enqueue(2, true);
@@ -142,7 +155,7 @@ public class App {
     }
 
     static void ejemplo_pila() throws Exception {
-        final Pila p = new Pila();
+        final Pila<Integer> p = new Pila<Integer>();
 
         p.push(1, true);
         p.push(2, true);
@@ -160,7 +173,7 @@ public class App {
     }
 
     static void ejemplo_lista_doblemente_enlazada() throws Exception {
-        final ListaDobleEnlazada lst = new ListaDobleEnlazada();
+        final ListaDobleEnlazada<Integer> lst = new ListaDobleEnlazada<Integer>();
         lst.addEnFin(1);
         lst.addEnFin(2);
         lst.addEnFin(3);
@@ -181,7 +194,7 @@ public class App {
     }
 
     static void ejemplo_lista_enlazada() throws Exception {
-        final ListaEnlazada lst = new ListaEnlazada();
+        final ListaEnlazada<Integer> lst = new ListaEnlazada<Integer>();
         lst.addEnFin(1);
         lst.addEnFin(2);
         lst.addEnFin(3);

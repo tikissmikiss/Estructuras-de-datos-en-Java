@@ -4,14 +4,14 @@ package estructuras_datos;
  * @author José Herce
  * @version 0.1 - 27/07/2020
  */
-public class Cola {
+public class Cola<T> {
     // Atributos
-    private ListaDobleEnlazada l;
+    private ListaDobleEnlazada<T> l;
     public boolean isEmpty;
 
     // Constructor
     public Cola() {
-        l = new ListaDobleEnlazada();
+        l = new ListaDobleEnlazada<T>();
         isEmpty = true;
     }
 
@@ -19,7 +19,7 @@ public class Cola {
      * Meter un elemento en la cola
      * @param value elemento a encolar
      */
-    public void enqueue(Object value) {
+    public void enqueue(T value) {
         l.addEnIni(value);
         isEmpty = false;
     }
@@ -29,7 +29,7 @@ public class Cola {
      * @param value elemento a encolar
      * @param print {@code true} para imprimir la cola después de encolar
      */
-    public void enqueue(Object value, boolean print) {
+    public void enqueue(T value, boolean print) {
         enqueue(value);
         if (print) 
             l.printList();

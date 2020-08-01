@@ -96,8 +96,8 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param r raíz del sub/árbol en donde insertar
      * @param n nodo a insertar
      */
-    private void insert(NodoBin r, NodoBin n) {
-        n.padre = r;    // Actualizar el padre del nodo
+    protected void insert(NodoBin r, NodoBin n) {
+        n.setPadre(r);    // Actualizar el padre del nodo
         if (r == null)  // Si el árbol esta vacío establecer como raíz
             this.root = n;
         else if (n.value <= r.value) 
@@ -134,23 +134,23 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
     public void delete(NodoBin n) throws Exception {
         if (n != null) {
             if (n.hijoIzq == null) {
-                n.hijoDch.setPadre(n.padre);
+                n.hijoDch.setPadre(n.getPadre());
                 n.hijoDch.setHijoIzq(n.hijoIzq);
                 n.hijoDch.setHijoDch(n.hijoDch);                
             } else if (n.hijoDch == null) {
-                n.hijoIzq.setPadre(n.padre);
+                n.hijoIzq.setPadre(n.getPadre());
                 n.hijoIzq.setHijoIzq(n.hijoIzq);
                 n.hijoIzq.setHijoDch(n.hijoDch);                
             } else {
                 // Subir el hijo izquierdo a la posición del elemento a eliminar.
-                n.hijoIzq.setPadre(n.padre);     // Apunta el padre del nodo que sube, al padre del nodo a borrar.
-                if (n.padre == null)           // Si el padre era null, actualiza el raíz del árbol.
+                n.hijoIzq.setPadre(n.getPadre());     // Apunta el padre del nodo que sube, al padre del nodo a borrar.
+                if (n.getPadre() == null)           // Si el padre era null, actualiza el raíz del árbol.
                     this.root = n.hijoIzq; 
-                if (n.padre == null);            // Si el elemento a borrar es el raíz, no hacer nada.
-                else if (n.padre.hijoIzq == n)   // Si el nodo a borrar es el hijo derecho de su padre.
-                    n.padre.setHijoIzq(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
-                else if (n.padre.hijoDch == n)   // Si el nodo a borrar es el hijo izquierdo de su padre.
-                    n.padre.setHijoDch(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
+                if (n.getPadre() == null);            // Si el elemento a borrar es el raíz, no hacer nada.
+                else if (n.getPadre().hijoIzq == n)   // Si el nodo a borrar es el hijo derecho de su padre.
+                    n.getPadre().setHijoIzq(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
+                else if (n.getPadre().hijoDch == n)   // Si el nodo a borrar es el hijo izquierdo de su padre.
+                    n.getPadre().setHijoDch(n.hijoIzq);    // Actualizarlo para que apunte al nodo que sube.
                 // Insertar el hijo derecho en el subárbol del hijo izquierdo.
                 this.insert(n.hijoIzq, n.hijoDch);
             }
@@ -162,9 +162,9 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param n destino de la ruta a imprimir
      */
     public static void printPath(NodoBin n) {
-        if (n.padre != null)
-            printPath(n.padre);
-        if (n.padre != null)
+        if (n.getPadre() != null)
+            printPath(n.getPadre());
+        if (n.getPadre() != null)
             System.out.print("-->");
         System.out.print("("+n.value+")");
     }

@@ -14,7 +14,7 @@ package estructuras_datos.Arboles;
 public class NodoBin {
     // Parámetros
     public int value;
-    public NodoBin padre;
+    private NodoBin padre;
     public NodoBin hijoIzq;
     public NodoBin hijoDch;
 
