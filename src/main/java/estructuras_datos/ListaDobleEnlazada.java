@@ -28,6 +28,15 @@ public class ListaDobleEnlazada<T> {
 		Nodo(N value) {
 			this.val = value;
 		}
+
+		@Override
+		public String toString() {
+			if (next != null)
+				return (String.valueOf(val)) + " --> " + next.toString();
+			else
+				return String.valueOf(val);
+		}
+
 	}
 	
 	/**
@@ -131,4 +140,13 @@ public class ListaDobleEnlazada<T> {
 		if (n.next != null) 
 			printNodo(n.next);
 	}
+
+	@Override
+	public String toString() {
+		if (!this.isEmpty) 
+			return primero.toString();
+		else
+			return "";
+	}
+
 }

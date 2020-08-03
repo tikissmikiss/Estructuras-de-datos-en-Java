@@ -5,6 +5,7 @@ import estructuras_datos.Arboles.*;
 
 /**
  * App para testeo de las estructuras de datos
+ * 
  * @author José Herce
  * @version 0.1 - 27/07/2020
  */
@@ -16,25 +17,116 @@ public class App {
         ejemplo_cola();
         ejemplo_arbol_binario();
         ejemplo_arbol_binario_busqueda();
+        ejemplo_tabla_hash();
         // ejemplo_arbol_AVL();
     }
 
     static void ejemplo_arbol_AVL() throws Exception {
         Arbol_AVL a = new Arbol_AVL();
-        int valores[] = {52,90,23,48,17,36,42,88,21,57,72};
-        /* TODO Actualizar a balanceado
-        *            (52) 
-        *           /    \
-        *       (23)     (90)
-        *      /   \     / 
-        *  (17)   (48) (88)
-        *    \    /    /
-        *   (21)(36) (57)
-        *         \    \
-        *         (42) (72)
-        */
+        int valores[] = { 52, 90, 23, 48, 17, 36, 42, 88, 21, 57, 72 };
+        /*
+         * TODO Actualizar a balanceado (52) / \ (23) (90) / \ / (17) (48) (88) \ / /
+         * (21)(36) (57) \ \ (42) (72)
+         */
         for (int i : valores) {
             a.insert(i);
+        }
+    }
+
+    static void ejemplo_tabla_hash() throws Exception {
+        Person[] people = {
+            new Person("Pepe"),
+            new Person("Jose"),
+            new Person("Marisa"),
+            new Person("Elena"),
+            new Person("Pedro"),
+            new Person("Jose Antonio"),
+            new Person("Luisa"),
+            new Person("Samuel"),
+            new Person("Isabel"),
+            new Person("Zaira"),
+            new Person("Jose"),
+        };
+        TablaHash t1 = new TablaHash(3);
+        for (Person person : people) {
+            t1.add(person.key, person);
+        }
+        System.out.println(t1.toString());
+
+        if (people[1].equals(people[2]));
+        boolean b = (people[1]==people[10]) ? true : false;
+        System.out.println(b);
+        b = people[1].equals(people[10]);
+        System.out.println(b);
+
+        // TODO continuar tabla hash
+
+        TablaHash t2 = new TablaHash(10);
+        int valor;
+
+        for (int i = 0; i < 20; i++) {
+            valor = (int) (Math.random()*100);
+            // t.add(valor, String.valueOf(valor));
+            // char c = (char) ((char) (Math.random() * ('Z' - 'A')) + 'A');
+            char[] c = {
+                (char) ((char) (Math.random() * ('Z' - 'A')) + 'A'),
+                (char) ((char) (Math.random() * ('Z' - 'A')) + 'A'), 
+                (char) ((char) (Math.random() * ('Z' - 'A')) + 'A')};
+
+                // TODO ??????????????????????????
+            // String string = String.valueOf(c);
+
+                // String string = 
+                // String.valueOf((char) (Math.random() * ((int) 'Z' - (int) 'A')) + (int) 'A') + 
+                // String.valueOf((char) (Math.random() * ((int) 'Z' - (int) 'A')) + (int) 'A') + 
+                // String.valueOf((char) (Math.random() * ((int) 'Z' - (int) 'A')) + (int) 'A');
+
+            t2.add(valor, String.valueOf(c));
+        }
+    }
+    
+    static class Person {
+        private int key;
+        private String name;
+
+        public static int count = 0;
+
+        public Person(int k, String name) {
+            this.setKey(k);
+            this.setName(name);
+            count++;
+        }
+
+        public Person(String name) {
+            this.setKey(count++);
+            this.setName(name);
+        }
+
+        @Override
+        public String toString() {
+            return this.name;
+        }
+
+        @Override
+        public boolean equals(Object person) {
+            Person p = (Person) person;
+            return this.name == p.name;
+        }
+
+        public int getKey() {
+            return key;
+        }
+
+        public void setKey(int key) {
+            this.key = key;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
         }
     }
 
@@ -178,51 +270,52 @@ public class App {
         lst.addEnFin(2);
         lst.addEnFin(3);
 
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.addEnIni(4);
         lst.addEnIni(5);
         lst.addEnIni(6);
 
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrIni();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
     }
 
     static void ejemplo_lista_enlazada() throws Exception {
-        final ListaEnlazada<Integer> lst = new ListaEnlazada<Integer>();
+        final ListaEnlazada lst = new ListaEnlazada();
         lst.addEnFin(1);
         lst.addEnFin(2);
         lst.addEnFin(3);
 
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.addEnIni(4);
         lst.addEnIni(5);
         lst.addEnIni(6);
 
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrIni();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
 
         lst.clrFin();
-        lst.printList();
+        System.out.println(lst.toString());
+
     }
 }

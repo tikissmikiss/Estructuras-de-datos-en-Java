@@ -22,7 +22,7 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
     public Arbol_AVL() {
     }
 
-    private class AVL_Nodo extends NodoBin {
+    class AVL_Nodo extends NodoBin {
         public int factorBalanceo; // Altura lado izq menos altura lado dch
 
         public AVL_Nodo(int v) {

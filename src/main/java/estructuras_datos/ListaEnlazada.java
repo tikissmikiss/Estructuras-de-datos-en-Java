@@ -5,10 +5,10 @@ package estructuras_datos;
  * @version 0.1 - 27/07/2020
  * @param isEmpty Devuelve true si la lista esta vacía
  */
-public class ListaEnlazada<T> {
+public class ListaEnlazada {
 	// Atributos Lista Enlazada
-	Nodo<T> primero;	// Puntero a primero nodo
-	Nodo<T> ultimo;	// Puntero a primero nodo
+	Nodo<Object> primero;	// Puntero a primero nodo
+	Nodo<Object> ultimo;	// Puntero a primero nodo
 	public boolean isEmpty;
 	
 	// Constructor Lista Enlazada
@@ -27,18 +27,26 @@ public class ListaEnlazada<T> {
 		Nodo(final N valor) {
 			this.val = valor;
 		}
+
+		@Override
+		public String toString() {
+			if (next != null)
+				return (String.valueOf(val)) + "\t├> " + "" + next.toString(); // codigo ascii 195 = ├ ( Línea vertical con empalme de recuadro gráfico )
+			else
+				return String.valueOf(val);
+		}
 	}
 
 	/**
 	 * Añadir nodo nuevo al inicio con el valor de la entrada
 	 * @param value valor para el nuevo nodo
 	 */
-	public void addEnIni(final T value) {
+	public void addEnIni(final Object value) {
 		/*
 		 * Añadir nodo en primero: - Crear nodo nuevo con el valor de entrada - Apuntar
 		 * next a primero nodo
 		 */
-		final Nodo<T> n = new Nodo<T>(value);
+		final Nodo<Object> n = new Nodo<Object>(value);
 		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {
 			this.primero = n;
@@ -55,8 +63,8 @@ public class ListaEnlazada<T> {
 	 * Añadir nodo nuevo al final con el valor de la entrada
 	 * @param value valor para el nuevo nodo
 	 */
-	public void addEnFin(final T value) {
-		final Nodo<T> n = new Nodo<T>(value);
+	public void addEnFin(final Object value) {
+		final Nodo<Object> n = new Nodo<Object>(value);
 		// Si la lista esta vacía primero y ultimo de lista apuntando al nuevo nodo
 		if (this.isEmpty) {   
 			this.primero = n;
@@ -91,7 +99,7 @@ public class ListaEnlazada<T> {
 			if (this.primero.next == null) { // Si el primero nodo es el último
 				this.primero = null;
 			} else { // Si el primero nodo no es el ultimo
-				Nodo<T> tmp = this.primero; // Guardar referencia al primero nodo
+				Nodo<Object> tmp = this.primero; // Guardar referencia al primero nodo
 				while (tmp.next.next != null) // Recorre la lista hasta el penúltimo nodo
 					tmp = tmp.next;
 				tmp.next = null;
@@ -101,13 +109,33 @@ public class ListaEnlazada<T> {
 		else throw new Exception("La lista ya esta vací­a");
 	}
 
+	public Nodo<Object> searchNodo(Object v) {
+		return searchNodo(this.primero, v);
+	}
+	/**
+	 * Busca desde el nodo {@code n} el elemento {@code v}. Si lo 
+	 * encuentra devuelve un areferencia al objeto, si no lo encuentra 
+	 * devuelve {@code null}
+	 * @param n nodo de partida
+	 * @param v elemento buscado
+	 * @return referencia al nodo si lo encuentra, de lo contario {@code null}.
+	 */
+	private Nodo<Object> searchNodo(Nodo<Object> n, Object v) {
+		if (n.val == v) 
+			return n;
+		else 
+			return searchNodo(n.next, v);
+	}
+
 	/** Comprueba y actualiza el parámetro isEmpty
 	 * @return true si vacía, false si no vacía
 	 */
 	private boolean isEmpty() {
-		if (this.primero == null) // Si la lista está vacía
+		if (this.primero == null) {// Si la lista está vacía
 			isEmpty = true;
-		else 
+			primero = null;
+			ultimo = null;
+		} else 
 			isEmpty = false;
 
 		return isEmpty;
@@ -125,11 +153,20 @@ public class ListaEnlazada<T> {
 	 * Imprime los nodos siguientes de forma recursiva
 	 * @param n nodo inicial
 	 */
-	protected void printNodo(final Nodo<T> n) {
+	protected void printNodo(final Nodo<Object> n) {
 		System.out.print(n.val);
 		if (n.next != null)
 			System.out.print(" --> ");
 		if (n.next != null) 
 			printNodo(n.next);
 	}
+
+	@Override
+	public String toString() {
+		if (!this.isEmpty) 
+			return primero.toString();
+		else
+			return "";
+	}
+
 }
