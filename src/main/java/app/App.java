@@ -18,6 +18,7 @@ public class App {
         ejemplo_arbol_binario();
         ejemplo_arbol_binario_busqueda();
         ejemplo_tabla_hash();
+        
         // ejemplo_arbol_AVL();
     }
 
