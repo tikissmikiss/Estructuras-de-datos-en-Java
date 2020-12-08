@@ -9,14 +9,14 @@ package estructuras_datos.Arboles;
  * se cumple siempre de la forma:</p>
  * <p>{@code hijoIzq} <= {@code valor} < {@code hijoDch}</p>
  */
-public class ArbolBinarioBusqueda extends ArbolBinario {
+public class ABB extends ArbolBinario {
 
     // Constructor
-    public ArbolBinarioBusqueda(int v) {
+    public ABB(int v) {
         super(v);
     }
 
-    public ArbolBinarioBusqueda() {
+    public ABB() {
 	}
 
 	/**
@@ -25,7 +25,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @return la referencia al nodo si existe.
      * <li>{@code null} si no existe.</li>  
      */
-    public NodoBin search(int v) {
+    public Nodo search(int v) {
         return searchNodo(this.root, v);
     }
     /**
@@ -34,7 +34,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param v valor buscado
      * @return el primer nodo con el valor buscado.<li>{@code null} si valor no encontrado.</li>
      */
-    private NodoBin searchNodo(NodoBin n, int v) {
+    private Nodo searchNodo(Nodo n, int v) {
         if (n.value == v)
             return n;
         else if (v < n.value)
@@ -44,10 +44,10 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
         return null;
     }
 
-    public NodoBin maximunNodo() {
+    public Nodo maximunNodo() {
         return maxNodo(root);
     }
-    private NodoBin maxNodo(NodoBin n) {
+    private Nodo maxNodo(Nodo n) {
         if (n.hijoDch != null)
             return maxNodo(n.hijoDch);
         return n;
@@ -56,14 +56,14 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
     public int maximunVal() {
         return maxVal(root);
     }
-    private int maxVal(NodoBin n) {
+    private int maxVal(Nodo n) {
         return maxNodo(n).value;
     }
 
-    public NodoBin minimunNodo() {
+    public Nodo minimunNodo() {
         return minNodo(root);
     }
-    private NodoBin minNodo(NodoBin n) {
+    private Nodo minNodo(Nodo n) {
         if (n.hijoIzq != null)
             return minNodo(n.hijoIzq);
         return n;
@@ -72,7 +72,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
     public int minimunVal() {
         return minVal(root);
     }
-    private int minVal(NodoBin n) {
+    private int minVal(Nodo n) {
         return minNodo(n).value;
     }
 
@@ -85,7 +85,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param v
      */
     public void insert(int v) {
-        NodoBin n = new NodoBin(v);
+        Nodo n = new Nodo(v);
         insert(this.root, n);
     }
     /**
@@ -96,7 +96,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param r raíz del sub/árbol en donde insertar
      * @param n nodo a insertar
      */
-    protected void insert(NodoBin r, NodoBin n) {
+    protected void insert(Nodo r, Nodo n) {
         n.setPadre(r);    // Actualizar el padre del nodo
         if (r == null)  // Si el árbol esta vacío establecer como raíz
             this.root = n;
@@ -131,7 +131,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * @param n nodo a eliminar
      * @throws Exception No existe el elemento que se intenta borrar
      */
-    public void delete(NodoBin n) throws Exception {
+    public void delete(Nodo n) throws Exception {
         if (n != null) {
             if (n.hijoIzq == null) {
                 n.hijoDch.setPadre(n.getPadre());
@@ -161,7 +161,7 @@ public class ArbolBinarioBusqueda extends ArbolBinario {
      * Imprime la ruta desde el raíz al nodo de entrada
      * @param n destino de la ruta a imprimir
      */
-    public static void printPath(NodoBin n) {
+    public static void printPath(Nodo n) {
         if (n.getPadre() != null)
             printPath(n.getPadre());
         if (n.getPadre() != null)

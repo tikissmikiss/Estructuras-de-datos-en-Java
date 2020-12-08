@@ -11,42 +11,42 @@ package estructuras_datos.Arboles;
  * @author José Herce
  * @version 0.1 - 27/07/2020
  */
-public class NodoBin {
+public class Nodo {
     // Parámetros
     public int value;
-    private NodoBin padre;
-    public NodoBin hijoIzq;
-    public NodoBin hijoDch;
+    private Nodo padre;
+    public Nodo hijoIzq;
+    public Nodo hijoDch;
 
     // Constructor
-    public NodoBin(int v) {
+    public Nodo(int v) {
         this.setValue(v);
         this.hijoIzq = null;
         this.hijoDch = null;
         this.padre = null;
     }
 
-    public NodoBin getPadre() {
+    public Nodo getPadre() {
         return padre;
     }
 
-    public void setPadre(NodoBin padre) {
+    public void setPadre(Nodo padre) {
         this.padre = padre;
     }
 
-    public NodoBin getHijoDch() {
+    public Nodo getHijoDch() {
         return hijoDch;
     }
 
-    public void setHijoDch(NodoBin hijoDch) {
+    public void setHijoDch(Nodo hijoDch) {
         this.hijoDch = hijoDch;
     }
 
-    public NodoBin getHijoIzq() {
+    public Nodo getHijoIzq() {
         return hijoIzq;
     }
 
-    public void setHijoIzq(NodoBin hijoIzq) {
+    public void setHijoIzq(Nodo hijoIzq) {
         this.hijoIzq = hijoIzq;
     }
 
@@ -65,7 +65,7 @@ public class NodoBin {
      */
     public void setHijoDch(int v) throws Exception { // Rigth
         if (this.hijoDch == null)
-            this.hijoDch = new NodoBin(v);
+            this.hijoDch = new Nodo(v);
         else throw new Exception("Ya existe un hijo derecho");
     }
 
@@ -76,7 +76,7 @@ public class NodoBin {
      */
     public void setHijoIzq(int v) throws Exception { // Left
         if (this.hijoIzq == null)
-            this.hijoIzq = new NodoBin(v);
+            this.hijoIzq = new Nodo(v);
         else throw new Exception("Ya existe un hijo izquierdo");
     }
 

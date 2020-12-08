@@ -8,12 +8,12 @@ import estructuras_datos.Cola;
  */
 public class ArbolBinario {
     // Atributos
-    public NodoBin root;
+    public Nodo root;
 
     // Constructores
     public ArbolBinario(){}
     public ArbolBinario(int v) {
-        this.root = new NodoBin(v);
+        this.root = new Nodo(v);
     }
 
     // Métodos
@@ -21,13 +21,13 @@ public class ArbolBinario {
      * Recorre el árbol e imprime el resultado
      * @param r = Nodo raíz
      */
-    public static void inorderWalk(NodoBin r) {
+    public static void inorderWalk(Nodo r) {
         if (r.hijoIzq != null) inorderWalk(r.hijoIzq);
         System.out.print(r.value + " ");
         if (r.hijoDch != null) inorderWalk(r.hijoDch);
     }
     
-    public NodoBin getRoot() {
+    public Nodo getRoot() {
 		return root;
 	}
 
@@ -36,14 +36,14 @@ public class ArbolBinario {
      * @param v = Valor nodo raíz
      */
 	public void setRoot(int v) {
-		this.root = new NodoBin(v);
+		this.root = new Nodo(v);
 	}
 
 	/**
      * Recorre el árbol e imprime el resultado
      * @param r = Nodo raíz
      */
-    public static void postoderWalk(NodoBin r){
+    public static void postoderWalk(Nodo r){
         if (r.hijoIzq != null) postoderWalk(r.hijoIzq);
         if (r.hijoDch != null) postoderWalk(r.hijoDch);
         System.out.print(r.value + " ");
@@ -53,7 +53,7 @@ public class ArbolBinario {
      * Recorre el árbol e imprime el resultado
      * @param r = Nodo raíz
      */
-    public static void preorderWalk(NodoBin r){
+    public static void preorderWalk(Nodo r){
         System.out.print(r.value + " ");
         if (r.hijoIzq != null) preorderWalk(r.hijoIzq);
         if (r.hijoDch != null) preorderWalk(r.hijoDch);
@@ -65,7 +65,7 @@ public class ArbolBinario {
      * @param r raíz del árbol o subárbol a recorrer
      * @throws Exception
      */
-    public static void breadthWalk(NodoBin r) throws Exception {
+    public static void breadthWalk(Nodo r) throws Exception {
         /*
         * encolar nodo raíz
         * mientras cola no vacía
@@ -75,10 +75,10 @@ public class ArbolBinario {
         *   imprimir valor
         * repetir con siguiente en cola
         */
-        Cola<NodoBin> c = new Cola<NodoBin>();
+        Cola<Nodo> c = new Cola<Nodo>();
         c.enqueue(r);
         while (!c.isEmpty) {
-            NodoBin n = (NodoBin) c.dequeue();
+            Nodo n = (Nodo) c.dequeue();
             if (n.hijoIzq != null) c.enqueue(n.hijoIzq);
             if (n.hijoDch != null) c.enqueue(n.hijoDch);
             System.out.print(n.value + " ");

@@ -132,7 +132,7 @@ public class App {
     }
 
     static void ejemplo_arbol_binario_busqueda() throws Exception {
-        ArbolBinarioBusqueda a = new ArbolBinarioBusqueda();
+        ABB a = new ABB();
         int valores[] = {52,90,23,48,17,36,42,88,21,57,72};
         /*
         *            (52) 
@@ -149,13 +149,13 @@ public class App {
             a.insert(i);
         }
 
-        ArbolBinarioBusqueda.preorderWalk(a.root);
+        ABB.preorderWalk(a.root);
         System.out.println();
-        ArbolBinarioBusqueda.inorderWalk(a.root);
+        ABB.inorderWalk(a.root);
         System.out.println();
-        ArbolBinarioBusqueda.postoderWalk(a.root);
+        ABB.postoderWalk(a.root);
         System.out.println();
-        ArbolBinarioBusqueda.breadthWalk(a.root);
+        ABB.breadthWalk(a.root);
         System.out.println();
 
         System.out.println("Máximo: " + a.maximunNodo().value);
@@ -164,7 +164,7 @@ public class App {
         System.out.println("Mínimo: " + a.minimunVal());
 
         System.out.print("Ruta hasta el 72: ");
-        ArbolBinarioBusqueda.printPath(a.search(72));
+        ABB.printPath(a.search(72));
         System.out.println();
         
         /*            BORRAR EL 23                    *             BORRAR EL 52
@@ -188,11 +188,11 @@ public class App {
         a.delete(52);
         // a.delete(23);
 
-        ArbolBinarioBusqueda.preorderWalk(a.root);
+        ABB.preorderWalk(a.root);
         System.out.println();
-        ArbolBinarioBusqueda.inorderWalk(a.root);
+        ABB.inorderWalk(a.root);
         System.out.println();
-        ArbolBinarioBusqueda.postoderWalk(a.root);
+        ABB.postoderWalk(a.root);
         System.out.println();
     }
 

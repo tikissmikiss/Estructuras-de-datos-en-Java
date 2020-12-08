@@ -12,7 +12,7 @@ package estructuras_datos.Arboles;
  * @author José Herce
  * @version 0.1 - 27/07/2020
  */
-public class Arbol_AVL extends ArbolBinarioBusqueda {
+public class Arbol_AVL extends ABB {
 
     // Constructor
     public Arbol_AVL(int v) {
@@ -22,7 +22,7 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
     public Arbol_AVL() {
     }
 
-    class AVL_Nodo extends NodoBin {
+    class AVL_Nodo extends Nodo {
         public int factorBalanceo; // Altura lado izq menos altura lado dch
 
         public AVL_Nodo(int v) {
@@ -86,10 +86,10 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
     }
 
     // TODO en Árbol binario de búsqueda se complica. Implementar con árbol balanceado
-    public NodoBin succesor(int v){
+    public Nodo succesor(int v){
         return succesor(root, v);
     }
-    private NodoBin succesor(NodoBin n, int v) {
+    private Nodo succesor(Nodo n, int v) {
         if (v > n.value)
             return succesor(n.hijoDch, v);
         else if (n.hijoIzq != null)
@@ -98,10 +98,10 @@ public class Arbol_AVL extends ArbolBinarioBusqueda {
     }
 
     // TODO en Árbol binario de búsqueda se complica. Implementar con árbol balanceado
-    public NodoBin predecessor(int v){
+    public Nodo predecessor(int v){
         return predecessor(root, v);
     }
-    private NodoBin predecessor(NodoBin n, int v) {
+    private Nodo predecessor(Nodo n, int v) {
         if (n.value < v)
             return predecessor(n.hijoIzq, v);
         else if (n.hijoDch != null)
