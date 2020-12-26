@@ -12,44 +12,32 @@ package estructuras_datos.arboles;
  * @author José Herce
  * @version 0.1 - 27/07/2020
  */
-public class Nodo {
+public class SubArbol {
     // Parámetros
-    private Nodo padre;
     private int valor;
-    private Nodo izq;
-    private Nodo dch;
+    private SubArbol izq;
+    private SubArbol dch;
 
     // Constructor
-    public Nodo(int v) {
-        this.padre = null;
+    public SubArbol(int v) {
         this.valor = v;
         this.izq = null;
         this.dch = null;
     }
 
-    public Nodo getPadre() {
-        return padre;
-    }
-
-    public void setPadre(Nodo padre) {
-        this.padre = padre;
-    }
-
-    public Nodo getDerecho() {
+    public SubArbol getDerecho() {
         return dch;
     }
 
-    public void setDerecho(Nodo n) {
-        n.padre = this;
+    public void setDerecho(SubArbol n) {
         this.dch = n;
     }
 
-    public Nodo getIzquierdo() {
+    public SubArbol getIzquierdo() {
         return izq;
     }
 
-    public void setIzquierdo(Nodo n) {
-        n.padre = this;
+    public void setIzquierdo(SubArbol n) {
         this.izq = n;
     }
 
@@ -69,7 +57,7 @@ public class Nodo {
      */
     void setDerecho(int v) throws Exception { // Rigth
         if (this.dch == null)
-            this.dch = new Nodo(v);
+            this.dch = new SubArbol(v);
         else
             throw new Exception("Ya existe un hijo derecho");
     }
@@ -82,7 +70,7 @@ public class Nodo {
      */
     void setIzquierdo(int v) throws Exception { // Left
         if (this.izq == null)
-            this.izq = new Nodo(v);
+            this.izq = new SubArbol(v);
         else
             throw new Exception("ERROR interno de la clase Nodo: Ya existe un hijo izquierdo");
     }
@@ -110,4 +98,11 @@ public class Nodo {
         else
             throw new Exception("Intento de borrar nodo inexistente");
     }
+
+    @Override
+    public String toString() {
+        return ((Integer) valor).toString();
+    }
+
+    
 }

@@ -5,6 +5,6 @@
 		}
 	],
 	"settings": {
-		"java.dependency.packagePresentation": "flat"
+		"java.dependency.packagePresentation": "hierarchical"
 	}
 }
